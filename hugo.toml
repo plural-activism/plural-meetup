@@ -20,7 +20,7 @@ enableRobotsTXT = true
 
 [params]
   description = 'Das Plural Meetup ist ein offener Raum für plurale Entitäten sich zu treffen, miteinander zu interagieren und sich selbst und andere kennen zu lernen.'
-  tagline = 'Anmeldung unter wir-magazin@mail.de'
+  tagline = 'Am 27.02.2027 ab 16:00. Anmeldung unter wir-magazin@mail.de'
   author = 'Plural Meetup'
   copyright_owner = 'Plural Meetup'
   landing_heading = 'Erfahre mehr:'
