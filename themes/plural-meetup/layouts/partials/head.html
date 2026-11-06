@@ -1,0 +1,37 @@
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{{ if .IsHome }}{{ site.Title }}{{ else }}{{ printf "%s | %s" .Title site.Title }}{{ end }}</title>
+
+{{- $description := "" -}}
+{{- with .Description }}{{ $description = . }}{{ else }}{{ with .Params.summary }}{{ $description = . }}{{ else }}{{ $description = site.Params.description }}{{ end }}{{ end -}}
+{{- with $description }}
+<meta name="description" content="{{ . | plainify | truncate 180 }}">
+{{- end }}
+{{- with site.Params.author }}
+<meta name="author" content="{{ . }}">
+{{- end }}
+
+<meta name="theme-color" content="#000000">
+<meta property="og:site_name" content="{{ site.Title }}">
+<meta property="og:title" content="{{ if .IsHome }}{{ site.Title }}{{ else }}{{ .Title }}{{ end }}">
+<meta property="og:url" content="{{ .Permalink }}">
+<meta property="og:type" content="{{ if .IsPage }}article{{ else }}website{{ end }}">
+{{- with $description }}
+<meta property="og:description" content="{{ . | plainify | truncate 180 }}">
+{{- end }}
+
+<link rel="canonical" href="{{ .Permalink }}">
+<link rel="icon" href="{{ "favicon.svg" | relURL }}" type="image/svg+xml">
+{{- range .AlternativeOutputFormats }}
+<link rel="{{ .Rel }}" type="{{ .MediaType.Type }}" href="{{ .Permalink }}" title="{{ site.Title }}">
+{{- end }}
+
+{{- with resources.Get "css/main.css" }}
+  {{- $css := . | minify | fingerprint "sha256" }}
+<link rel="stylesheet" href="{{ $css.RelPermalink }}" integrity="{{ $css.Data.Integrity }}">
+{{- end }}
+
+{{/* Applies the stored theme before first paint: dropdown > OS preference > dark default. */}}
+<script>
+(function(){var r=document.documentElement;try{var k="plural-meetup-theme",p=localStorage.getItem(k);var t=(p&&p!=="system")?p:((window.matchMedia&&window.matchMedia("(prefers-color-scheme: light)").matches)?"light":"dark");r.setAttribute("data-theme",t);r.setAttribute("data-theme-pref",p||"system");}catch(e){r.setAttribute("data-theme","dark");}})();
+</script>

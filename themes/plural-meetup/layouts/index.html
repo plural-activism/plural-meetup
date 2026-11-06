@@ -1,0 +1,41 @@
+{{ define "main" }}
+{{- $nav := partial "nav-data.html" . -}}
+{{- $landingSection := site.Params.landing_section | default "landing" -}}
+{{- $entries := where site.RegularPages "Section" $landingSection -}}
+
+<section class="hero">
+  <div class="hero__inner container">
+    {{- with site.Params.hero_eyebrow }}
+    <p class="hero__eyebrow">{{ . }}</p>
+    {{- end }}
+    <h1 class="hero__title">{{ site.Title }}</h1>
+    {{- with site.Params.tagline }}
+    <p class="hero__tagline">{{ . }}</p>
+    {{- end }}
+    {{- with site.Params.description }}
+    <p class="hero__description">{{ . }}</p>
+    {{- end }}
+    {{- if or $nav.blogURL $nav.about }}
+    <div class="hero__actions">
+      {{- with $nav.blogURL }}
+      <a class="btn btn--primary" href="{{ . }}">{{ site.Params.cta_blog | default "Read the blog" }}</a>
+      {{- end }}
+      {{- with $nav.about }}
+      <a class="btn btn--ghost" href="{{ .RelPermalink }}">{{ site.Params.cta_about | default "About us" }}</a>
+      {{- end }}
+    </div>
+    {{- end }}
+  </div>
+</section>
+
+{{- with $entries }}
+<section class="section container" aria-labelledby="landing-heading">
+  <h2 class="section__title" id="landing-heading">{{ site.Params.landing_heading | default "What we do" }}</h2>
+  <div class="card-grid">
+    {{- range .ByWeight }}
+    {{ partial "card.html" . }}
+    {{- end }}
+  </div>
+</section>
+{{- end }}
+{{ end }}

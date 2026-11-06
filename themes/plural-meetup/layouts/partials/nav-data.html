@@ -1,0 +1,12 @@
+{{/* Resolves the optional navigation targets.
+     About and Blog are only linked when they actually exist, so the top bar
+     never points at a URL that would 404. */}}
+{{- $aboutPath := site.Params.about_page | default "/about" -}}
+{{- $about := site.GetPage $aboutPath -}}
+{{- $blogSection := site.Params.blog_section | default "blog" -}}
+{{- $blogPages := where site.RegularPages "Section" $blogSection -}}
+{{- $blogURL := "" -}}
+{{- with $blogPages -}}
+  {{- $blogURL = printf "/%s/" $blogSection | relURL -}}
+{{- end -}}
+{{- return (dict "about" $about "blogURL" $blogURL "blogSection" $blogSection) -}}

@@ -1,0 +1,18 @@
+{{ define "main" }}
+<div class="container">
+  <header class="page-header">
+    <h1 class="page-title">{{ .Title }}</h1>
+    {{- with .Content }}
+    <div class="prose">{{ . }}</div>
+    {{- end }}
+    <p class="page-meta">{{ len .Pages }} {{ if eq (len .Pages) 1 }}{{ site.Params.entry | default "entry" }}{{ else }}{{ site.Params.entries | default "entries" }}{{ end }}</p>
+  </header>
+
+  {{- $pages := .Pages.ByDate.Reverse }}
+  {{- if $pages }}
+  {{ partial "entries.html" (dict "pages" $pages) }}
+  {{- else }}
+  <p class="empty">{{ site.Params.empty_list | default "Nothing here yet — check back soon." }}</p>
+  {{- end }}
+</div>
+{{ end }}

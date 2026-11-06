@@ -1,0 +1,11 @@
+{{- $url := .RelPermalink -}}
+{{- with .Params.link }}{{ $url = . }}{{ end -}}
+<article class="card">
+  <h3 class="card__title"><a href="{{ $url }}">{{ .Title }}</a></h3>
+  {{- $summary := "" -}}
+  {{- with .Params.summary }}{{ $summary = . }}{{ else }}{{ with .Description }}{{ $summary = . }}{{ else }}{{ $summary = .Summary | plainify }}{{ end }}{{ end -}}
+  {{- with $summary }}
+  <p class="card__summary">{{ . | plainify | truncate 200 }}</p>
+  {{- end }}
+  <a class="card__more" href="{{ $url }}">{{ site.Params.read_more | default "Read more" }} <span aria-hidden="true">&rarr;</span></a>
+</article>

@@ -1,0 +1,9 @@
+<div class="theme-switcher">
+  <label class="theme-switcher__label" for="theme-select">{{ site.Params.theme_label | default "Theme" }}</label>
+  <select class="theme-switcher__select" id="theme-select" data-theme-select>
+    <option value="system">{{ site.Params.theme_option_system | default "System" }}</option>
+    <option value="dark">{{ site.Params.theme_option_dark | default "Dark" }}</option>
+    <option value="light">{{ site.Params.theme_option_light | default "Light" }}</option>
+    <option value="contrast">{{ site.Params.theme_option_contrast | default "High contrast" }}</option>
+  </select>
+</div>

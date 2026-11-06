@@ -1,0 +1,32 @@
+{{ define "main" }}
+{{- $nav := partial "nav-data.html" . -}}
+{{- $isBlog := eq .Section $nav.blogSection -}}
+<div class="container">
+  <article class="post">
+    <header class="post__header">
+      <h1 class="post__title">{{ .Title }}</h1>
+      {{- if not .Date.IsZero }}
+      <p class="post__meta">
+        <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date | time.Format ":date_long" }}</time>
+        {{- if $isBlog }}{{ with .ReadingTime }}<span class="entry__reading">{{ . }} min read</span>{{ end }}{{ end }}
+      </p>
+      {{- end }}
+      {{ partial "tags.html" . }}
+    </header>
+
+    {{- with .Description }}
+    <p class="post__lede">{{ . }}</p>
+    {{- end }}
+
+    <div class="prose">
+      {{ .Content }}
+    </div>
+  </article>
+
+  {{- if $isBlog }}
+  <p class="post__back"><a href="{{ printf "/%s/" $nav.blogSection | relURL }}">&larr; {{ site.Params.back_to_blog | default "Back to the blog" }}</a></p>
+  {{- else }}
+  <p class="post__back"><a href="{{ "/" | relURL }}">&larr; {{ site.Params.back_home | default "Back home" }}</a></p>
+  {{- end }}
+</div>
+{{ end }}

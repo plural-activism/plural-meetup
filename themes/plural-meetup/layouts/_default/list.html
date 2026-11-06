@@ -1,0 +1,19 @@
+{{ define "main" }}
+<div class="container">
+  <header class="page-header">
+    <h1 class="page-title">{{ .Title }}</h1>
+    {{- with .Content }}
+    <div class="prose">{{ . }}</div>
+    {{- end }}
+  </header>
+
+  {{- $pages := .RegularPages.ByDate.Reverse }}
+  {{- if $pages }}
+  {{- $paginator := .Paginate $pages }}
+  {{ partial "entries.html" (dict "pages" $paginator.Pages) }}
+  {{ partial "pagination.html" (dict "paginator" $paginator) }}
+  {{- else }}
+  <p class="empty">{{ site.Params.empty_list | default "Nothing here yet — check back soon." }}</p>
+  {{- end }}
+</div>
+{{ end }}

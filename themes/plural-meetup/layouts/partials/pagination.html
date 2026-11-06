@@ -1,0 +1,12 @@
+{{- $paginator := .paginator -}}
+{{- if gt $paginator.TotalPages 1 }}
+<nav class="pagination" aria-label="{{ site.Params.pagination_label | default "Pagination" }}">
+  {{- with $paginator.Prev }}
+  <a class="pagination__link" href="{{ .URL }}" rel="prev">&larr; {{ site.Params.newer | default "Newer" }}</a>
+  {{- end }}
+  <span class="pagination__status">{{ site.Params.page_of | default "Page" }} {{ $paginator.PageNumber }} {{ site.Params.of | default "of" }} {{ $paginator.TotalPages }}</span>
+  {{- with $paginator.Next }}
+  <a class="pagination__link" href="{{ .URL }}" rel="next">{{ site.Params.older | default "Older" }} &rarr;</a>
+  {{- end }}
+</nav>
+{{- end }}

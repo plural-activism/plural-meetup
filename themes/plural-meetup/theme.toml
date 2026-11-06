@@ -1,0 +1,10 @@
+name = "Plural Meetup"
+description = "Simple, accessible Hugo theme for Plural Meetup: landing page, about page and blog, with light, dark and high-contrast modes."
+license = "MIT"
+homepage = "https://example.org/"
+tags = ["blog", "landing page", "dark mode", "high contrast", "accessible", "responsive"]
+features = ["landing page", "blog", "taxonomies", "theme switcher", "light mode", "dark mode", "high contrast"]
+min_version = "0.116.0"
+
+[author]
+  name = "Plural Meetup"

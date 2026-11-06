@@ -1,0 +1,24 @@
+{{- $pages := .pages -}}
+<div class="entries">
+  {{- range $pages }}
+  <article class="entry">
+    <h2 class="entry__title"><a href="{{ .RelPermalink }}">{{ .Title }}</a></h2>
+    <p class="entry__meta">
+      {{- if not .Date.IsZero }}
+      <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date | time.Format ":date_long" }}</time>
+      {{- end }}
+      {{- with .ReadingTime }}<span class="entry__reading">{{ . }} min read</span>{{ end }}
+      {{- with .Params.categories }}
+      <span class="entry__categories">{{ site.Params.in_label | default "in" }} {{ delimit . ", " }}</span>
+      {{- end }}
+    </p>
+    {{- $summary := "" -}}
+    {{- with .Params.summary }}{{ $summary = . }}{{ else }}{{ with .Description }}{{ $summary = . }}{{ else }}{{ $summary = .Summary | plainify }}{{ end }}{{ end -}}
+    {{- with $summary }}
+    <p class="entry__summary">{{ . | plainify | truncate 220 }}</p>
+    {{- end }}
+    {{ partial "tags.html" . }}
+    <a class="entry__more" href="{{ .RelPermalink }}">{{ site.Params.read_more | default "Read more" }} <span aria-hidden="true">&rarr;</span></a>
+  </article>
+  {{- end }}
+</div>

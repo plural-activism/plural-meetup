@@ -1,0 +1,10 @@
+{{ define "main" }}
+<div class="container">
+  <header class="page-header">
+    <p class="hero__eyebrow">404</p>
+    <h1 class="page-title">{{ site.Params.not_found_title | default "Page not found" }}</h1>
+    <p class="page-meta">{{ site.Params.not_found_text | default "The page you were looking for does not exist or has moved." }}</p>
+  </header>
+  <p class="post__back"><a href="{{ "/" | relURL }}">&larr; {{ site.Params.back_home | default "Back home" }}</a></p>
+</div>
+{{ end }}

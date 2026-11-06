@@ -1,0 +1,40 @@
+baseURL = 'https://meetup.plural.fyi/'
+languageCode = 'de-de'
+title = 'Plural Meetup'
+theme = 'plural-meetup'
+
+# Posts per page on list views.
+paginate = 6
+
+enableRobotsTXT = true
+
+[taxonomies]
+  tag = 'tags'
+  category = 'categories'
+
+[outputs]
+  home = ['HTML', 'RSS']
+  section = ['HTML', 'RSS']
+  taxonomy = ['HTML', 'RSS']
+  term = ['HTML', 'RSS']
+
+[params]
+  description = 'Das Plural Meetup ist ein offener Raum für plurale Entitäten sich zu treffen, miteinander zu interagieren und sich selbst und andere kennen zu lernen.'
+  tagline = 'Anmeldung unter wir-magazin@mail.de'
+  author = 'Plural Meetup'
+  copyright_owner = 'Plural Meetup'
+  landing_heading = 'Erfahre mehr:'
+
+  # Navigation targets. "About" and "Blog" only appear in the top bar ^en
+  # they actually exist — see themes/plural-meetup/layouts/partials/nav-data.html.
+  about_page = '/about'
+  blog_section = 'blog'
+  landing_section = 'landing'
+
+[markup]
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = true
+  [markup.highlight]
+    noClasses = false
+    style = 'github-dark'

@@ -1,0 +1,23 @@
+{{ define "main" }}
+<div class="container">
+  <header class="page-header">
+    <h1 class="page-title">{{ .Title }}</h1>
+    {{- with .Content }}
+    <div class="prose">{{ . }}</div>
+    {{- end }}
+  </header>
+
+  {{- with .Pages }}
+  <ul class="term-list">
+    {{- range . }}
+    <li class="term-list__item">
+      <a class="term-list__link" href="{{ .RelPermalink }}">{{ .LinkTitle }}</a>
+      <span class="term-list__count">{{ len .Pages }}</span>
+    </li>
+    {{- end }}
+  </ul>
+  {{- else }}
+  <p class="empty">{{ site.Params.empty_list | default "Nothing here yet — check back soon." }}</p>
+  {{- end }}
+</div>
+{{ end }}

@@ -1,0 +1,33 @@
+{{- $nav := partial "nav-data.html" . -}}
+<header class="topbar">
+  <div class="topbar__inner">
+    <a class="brand" href="{{ "/" | relURL }}">
+      <span class="brand__mark" aria-hidden="true"></span>
+      <span class="brand__name">{{ site.Title }}</span>
+    </a>
+
+    <nav class="nav" aria-label="{{ site.Params.nav_label | default "Main navigation" }}">
+      <ul class="nav__list">
+        {{- $homeURL := "/" | relURL }}
+        <li class="nav__item">
+          <a class="nav__link{{ if .IsHome }} is-active{{ end }}" href="{{ $homeURL }}"{{ if .IsHome }} aria-current="page"{{ end }}>{{ site.Params.nav_home_label | default "Home" }}</a>
+        </li>
+
+        {{- with $nav.about }}
+        <li class="nav__item">
+          <a class="nav__link{{ if eq .RelPermalink $.RelPermalink }} is-active{{ end }}" href="{{ .RelPermalink }}"{{ if eq .RelPermalink $.RelPermalink }} aria-current="page"{{ end }}>{{ site.Params.nav_about_label | default "About" }}</a>
+        </li>
+        {{- end }}
+
+        {{- with $nav.blogURL }}
+        {{- $isBlog := eq $.Section $nav.blogSection }}
+        <li class="nav__item">
+          <a class="nav__link{{ if $isBlog }} is-active{{ end }}" href="{{ . }}"{{ if $isBlog }} aria-current="page"{{ end }}>{{ site.Params.nav_blog_label | default "Blog" }}</a>
+        </li>
+        {{- end }}
+      </ul>
+    </nav>
+
+    {{ partial "theme-switcher.html" . }}
+  </div>
+</header>
