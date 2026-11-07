@@ -1,8 +1,10 @@
 +++
-title = 'Barrierefreiheit und Aktivitäten'
+title = 'Aktivitäten'
 weight = 30
 summary = 'Neben dem Treffen mit anderen Teilnehmern bieten wir einige kreative Aktivitäten an.'
 description = 'Neben dem Treffen mit anderen Teilnehmern bieten wir einige kreative Aktivitäten an.'
 +++
 
-Neben der Möglichkeit, mit anderen Systemen / Kollektiven / Konstrukten / Personen zu sprechen, haben wir auch eine Reihe von Aktivitäten, die ihr während des Meetups durchführen könnt. Es wird eine Button Maschine zu Verfügung stehen. Es gibt Material zum erstellen von Beiträgen für unser [zine](zine.plural.fyi) und einige zines und Beiträge als Inspiration. Wir haben auch eine kleine Bibliothek mit Büchern und Zeitschriften, die ihr während des Meetups lesen könnt.
+Das Meetup ist explizit keine Selbsthilfegruppe, sondern ein Ort, um andere Leute aus dem pluralen/multiplen/DIS/Vielesein-Spektrum kennenzulernen und gemeinsam eine schöne Zeit zu haben.
+
+Neben der Möglichkeit, sich untereinander auszutauschen, bieten wir auch einige kreative Aktivitäten an. Es wird eine Buttonmaschine zu Verfügung stehen. Es gibt Material zum Erstellen von Beiträgen für unser plurales [zine](https://zine.plural.fyi) (oder um einfach so Kunst zu machen) und einige zines und Beiträge als Inspiration. Bringt auch gerne eigene Bastelsachen oder stim toys mit, wenn ihr möchtet. Wir haben auch eine kleine Bibliothek mit Büchern und Zeitschriften, die ihr während des Meetups lesen könnt.

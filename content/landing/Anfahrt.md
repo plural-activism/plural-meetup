@@ -1,8 +1,8 @@
 +++
 title = 'Anfahrt'
 weight = 20
-summary = 'Unser Meetup findet im Black Pigeon in Dortmund statt, in der Nähe zum Hauptbahnhof und mit Park & Ride um der Ecke.'
-description = 'Unser Meetup findet im Black Pigeon in Dortmund statt, in der Nähe zum Hauptbahnhof und mit Park & Ride um der Ecke. Hier findet ihr eine Anfahrtsbeschreibung und die Adresse.'
+summary = 'Unser Meetup findet im Black Pigeon in Dortmund statt, in der Nähe vom Hauptbahnhof und mit Park & Ride um der Ecke. Hier findet ihr eine Anfahrtsbeschreibung und die Adresse.'
+description = 'Unser Meetup findet im Black Pigeon in Dortmund statt, in der Nähe vom Hauptbahnhof und mit Park & Ride um der Ecke. Hier findet ihr eine Anfahrtsbeschreibung und die Adresse.'
 
 +++
 
